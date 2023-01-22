@@ -6,9 +6,15 @@
     margin-bottom: 25px;
 
     .logo-container {
-        height: 100%;
-        width: 70px;
-        padding: 25px;
+        // height: 100%;
+        // width: 70px;
+        // padding: 25px;
+        margin: 15px;
+        box-sizing: content-box;
+    }
+
+    .inside-path:hover path {
+        fill: rgb(50, 165, 165);
     }
 
     .nav-links-container {

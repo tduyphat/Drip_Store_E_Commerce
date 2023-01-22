@@ -19,7 +19,7 @@ const Navigation = () => {
         <Fragment>
             <div className='navigation'>
                 <Link className='logo-container' to='/'>
-                    <CrwnLogo className='logo' />
+                    <CrwnLogo className='logo inside-path' />
                 </Link>
                 <div className='nav-links-container'>
                     <Link className='nav-link' to='/shop'>Shop</Link>
