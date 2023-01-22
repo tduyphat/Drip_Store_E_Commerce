@@ -21,6 +21,11 @@
         .nav-link {
             padding: 10px 15px;
             cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .nav-link:hover {
+            background-color: rgb(216, 212, 212);
         }
     }
 }

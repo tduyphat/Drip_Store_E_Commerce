@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { toast } from "react-toastify";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
@@ -22,7 +23,7 @@ const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields
 
-    console.log('hit')
+    const { setCurrentUser } = useContext(UserContext)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
@@ -37,7 +38,9 @@ const SignUpForm = () => {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password)
+            setCurrentUser(user)
             await createUserDocumentFromAuth(user, { displayName })
+            toast.success('Account created!')
             resetFormFields()
         }
 

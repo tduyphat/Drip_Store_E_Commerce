@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
+import { toast } from "react-toastify";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import './sign-in-form.styles.scss'
 import { UserContext } from "../../contexts/user.context";
 
 import {
@@ -10,7 +12,6 @@ import {
     signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
-import './sign-in-form.styles.scss'
 
 const defaultFormFields = {
     email: '',
@@ -39,6 +40,7 @@ const SignInForm = () => {
 
         try {
             const { user } = await signInAuthUserWithEmailAndPassword(email, password)
+            toast.success('Signed in!')
             setCurrentUser(user)
             resetFormFields()
         }
@@ -46,10 +48,10 @@ const SignInForm = () => {
         catch (error) {
             switch (error.code) {
                 case 'auth/wrong-password':
-                    alert('Incorrect password for email!')
+                    toast.error('Email and password does not match!')
                     break
                 case 'auth/user-not-found':
-                    alert('No user assciated with this email')
+                    toast.error('No user has registered with this email!')
                     break
                 default: console.log(error)
             }
