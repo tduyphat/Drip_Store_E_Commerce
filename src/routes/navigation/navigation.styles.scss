@@ -13,6 +13,10 @@
         box-sizing: content-box;
     }
 
+    .inside-path path {
+        transition: all 0.4s;
+    }
+
     .inside-path:hover path {
         fill: rgb(50, 165, 165);
     }

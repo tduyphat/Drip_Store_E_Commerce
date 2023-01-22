@@ -1,17 +1,16 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
+import { ReactComponent as DripLogo } from "../../assets/water_drop.svg";
 import './navigation.styles.scss';
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { toast } from "react-toastify";
 
 const Navigation = () => {
-    const { currentUser, setCurrentUser } = useContext(UserContext)
+    const { currentUser } = useContext(UserContext)
 
     const signOutHandler = async () => {
-        const res = await signOutUser()
-        setCurrentUser(null)
+        await signOutUser()
         toast.info('Sign out!')
     }
 
@@ -19,7 +18,7 @@ const Navigation = () => {
         <Fragment>
             <div className='navigation'>
                 <Link className='logo-container' to='/'>
-                    <CrwnLogo className='logo inside-path' />
+                    <DripLogo className='logo inside-path' />
                 </Link>
                 <div className='nav-links-container'>
                     <Link className='nav-link' to='/shop'>Shop</Link>
