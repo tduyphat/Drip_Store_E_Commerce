@@ -6,6 +6,7 @@ import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import { UserProvider } from './contexts/user.context';
+import { ProductProvider } from './contexts/products.context';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProductProvider>
+          <App />
+        </ProductProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

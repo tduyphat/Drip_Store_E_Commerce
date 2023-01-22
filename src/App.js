@@ -1,12 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/home.component";
+import Shop from "./routes/shop/shop.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Navigation from "./routes/navigation/navigation.component";
 import { ToastContainer } from 'react-toastify';
-
-const Shop = () => {
-  return <h1>I AM THE SHOP</h1>
-}
 
 const App = () => {
   return (
