@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Directory from '../../components/directory/directory.compnent';
+import Directory from '../../components/directory/directory.component';
 
 const Home = () => {
 
@@ -30,6 +30,7 @@ const Home = () => {
             "imageUrl": "https://images.unsplash.com/photo-1542059765-8a5aff6c0dc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
         }
     ]
+
     return (
         <div>
             <Outlet />
