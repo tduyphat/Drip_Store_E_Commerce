@@ -5,7 +5,12 @@ import { ReactComponent as DripLogo } from "../../assets/water_drop.svg";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
 
-import './navigation.styles.scss';
+import {
+    NavigationContainer,
+    NavLink,
+    NavLinks,
+    LogoContainer
+} from './navigation.styles';
 
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
@@ -23,20 +28,20 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            <div className='navigation'>
-                <Link className='logo-container' to='/'>
+            <NavigationContainer>
+                <LogoContainer to='/'>
                     <DripLogo className='logo inside-path' />
-                </Link>
-                <div className='nav-links-container'>
-                    <Link className='nav-link' to='/shop'>Shop</Link>
+                </LogoContainer>
+                <NavLinks>
+                    <NavLink to='/shop'>Shop</NavLink>
                     {
-                        currentUser ? (<span className='nav-link' onClick={signOutHandler}>Sign Out</span>)
-                            : (<Link className='nav-link' to='/auth'>Sign In</Link>)
+                        currentUser ? (<NavLink as='span' onClick={signOutHandler}>Sign Out</NavLink>)
+                            : (<NavLink to='/auth'>Sign In</NavLink>)
                     }
                     <CartIcon />
-                </div>
+                </NavLinks>
                 {isCartOpen && (<CartDropDown />)}
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     )
